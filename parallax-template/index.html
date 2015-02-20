@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Klev</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="container">
+      <div class="nav-wrapper"> 
+
+        <!-- <a id="logo-container" href="#" class="brand-logo">Logo</a> <!-->
+        <ul class="right">
+          <li><a href="#"> About </a></li>
+          <li><a href="#"> Competitive Analysis </a></li>
+          <li><a href="#"> Requirements </a></li>
+          <li><a href="#"> Technical Specification </a></li>
+
+
+
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="#">Navbar Link</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Klev</h1>
+        <h4 class="header center teal-text text-lighten-2">18-549 Team 17, Spring 2015</h4>
+
+        <div class="row center">
+          <h5 class="header col s12 light">A trainable flexible device sensor for smart homes</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="Electricity.jpg" class="center" alt="Unsplashed background img 2"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="mdi-social-group"></i></h2>
+            <h5 class="center">About</h5>
+ 
+            <p class="light"> Team Klev is based in Pittsburgh, PA. We're one of many teams developing innovative embedded systems on behalf of Carnegie Mellon University's senior Electrical & Computer Engineering capstone course: 18-549: Embedded System Design taught by <a href="http://users.ece.cmu.edu/~agr/"> Dr. Anthony Rowe </a>.  </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="mdi-image-filter-drama"></i></h2>
+            <h5 class="center">Concept</h5>
+
+            <p class="light"> Klev is a sensor array that you can teach to monitor any of your devices. The sensor network uses machine learning algorithms to learn to monitor the state of a widerange of common devices and objects. Klev can then use this data to send people and systems useful insights and information about their devices. </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="mdi-image-flash-on"></i></h2>
+            <h5 class="center">Motivation</h5>
+
+            <p class="light">As the idea of a "Smart Home" becomes a reality, easy-to-use sensor arrays will allow homeowners to better customize their homes. Currently, sensor arrays require pre-defined rules to effectively monitor device state. Users will be able to train Klev to monitor device states the need for programmatic skills.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="circuit.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-sort brown-text"></i></h3>
+          <p class="left-align light">
+          <h2 class="center brown-text"> Design Requirements </h2>
+          <br>
+          <h4 class="center brown-text"> Explicit Requirements </h4>
+          <br>
+
+          - The user should be able to check the status of the device to which the node is attached any time they have connection to the Internet, once training has been completed.
+          <br>
+          - The system should be 80% accurate at predicting the state of a dishwasher, washing machine, and dryer.
+          <br>
+          
+          - The system should be able to update it’s “guess” as to whether an appliance is on once a second at the slowest.
+          <br>
+          
+          - The process of training the system for a device should take at most 5 minutes, excluding time to turn the device on or off (assuming the user has already attached the sensor node).
+          <br>
+          
+          - If the user removes batteries from the node, then puts them back it, the system should not have to be re-trained to continue to detect the state of the attached appliance.
+          <br>
+          
+          - If the user unplugs the hub once the system has been trained, then plugs it back in, the system should be able to detect the state of the device without having to be re-trained.
+          <br>
+          - The user should be able to connect the hub to a WiFi network without having to write any code.
+          <br>
+          - The user should have the option of being notified via email or text message when one of their devices switches on or off.
+          <br>
+          - The enclosure for the sensor node should have a solar panel.
+          <br>
+          - The device should turn off sensors that are not necessary to determine the state of the device.
+          <br>
+          <h2 class="center brown-text"> Implied Requirements </h2>
+          <br>
+          - The period at which the microcontroller sends data to the hub device, and the time it takes for the hub to receive the data and update it’s “guess” should be at most one second each.
+          <br>
+          - The server running on the hub should not crash
+          <br>
+          - The hub should have non-volatile storage that stores information on how to make predictions based on node data, and which features are necessary for making the predictions.
+          <br>
+          - A categorical machine learning technique should be used.
+          <br>
+          - The user should not have to tell the system what symptoms it should look for to determine if a device is on or off.
+          <br>
+          - When the solar panel is exposed to light, it should reduce the amount of power the battery supplies.
+          <br>
+          - The node device should not send back unprocessed sensor data to the hub. It should either send features calculated over some sampling intervals, or the results of a machine learning algorithm run on the node’s processor.
+          <br>
+          - The system must be able to tell which features are relevant to determining the state of the device to which the node is attached. Irrelevant features should not be sent sent from the node to the hub.
+          <br>
+          <h2 class="center brown-text"> Coolness Requirements </h2>
+          <br>
+          - The node and hub devices should have enclosures.
+          <br>
+          - The web app should be aesthetically pleasing
+          <br>
+          - We should have a cool logo and device name.
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="vortex.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+
+    <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-sort brown-text"></i></h3>
+          <p class="left-align light">
+          <h2 class="center brown-text"> Competitive Analysis </h2>
+          <br>
+          <h4 class="center brown-text">  </h4>
+          <br>
+          Twine - Web App
+          <br>
+          Spotter  - Mobile App, WiFi based
+          <br>
+          Multi-sensor
+          <br>
+
+          Twine: temp, vibration, orientation
+          <br>
+          Spotter: temp, humidity, light, accelerometer, infrared
+          <br>
+          Based on if-then rules created by users
+
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="circuit_components.jpg" alt="Unsplashed background img 3"></div>
+    <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-sort brown-text"></i></h3>
+          <p class="left-align light">
+          <h2 class="center brown-text"> Technical Specification </h2>
+
+
+          <h2 class="center brown-text"> Parts </h2>
+          <img src="parts.jpg" height="75%" width="75%" alt="Unsplashed background img 3">
+
+          <br>
+          <h4 class="center brown-text"> Hub Software </h4>
+        The hub will be running a web-server that will display web pages dynamically based on the nodes’ states in its database. The hub webpage will include controls for training the node devices and monitoring their states. It will perform machine learning tasks on incoming information from nodes. After the completion of a machine learning task, it will save the results to its database, and it will perform any programmed events based on state changes from the nodes. Specific softwares for this are documented in the design trade studies.
+        <h4 class="center brown-text"> Protocols </h4>
+
+        MPU-9150
+        Rasp Pi 2
+        Support Vector Machine
+        Django
+        802.15.4
+        802.11
+
+          Twine: temp, vibration, orientation
+          <br>
+          Spotter: temp, humidity, light, accelerometer, infrared
+          <br>
+          Based on if-then rules created by users
+
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"> Team </h5>
+          <p class="grey-text text-lighten-4">We are a team of goofy dudes trying to make a cool machine learning sensor system
+            <br>
+          <div id="team photos" style="display:inline; overflow:hidden;">
+
+            <div class="row">
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/headshots/Matt.jpg" height="15%" width="15%" alt="Unsplashed background img 2">
+                    <span class="card-title">Matt Kellogg </span>
+                  </div>
+                  <div class="card-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                  </div>
+                  <!--<div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href='#'>This is a link</a>
+                  </div> <!-->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/headshots/Toast.jpg" height="15%" width="15%" alt="Unsplashed background img 2">
+                    <span class="card-title">Chris "Toasty" Hansen </span>
+                  </div>
+                  <div class="card-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                  </div>
+                  <!--<div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href='#'>This is a link</a>
+                  </div> <!-->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/headshots/DJ.jpg" height="15%" width="15%" alt="Unsplashed background img 2">
+                    <span class="card-title">DJ Begos </span>
+                  </div>
+                  <div class="card-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                  </div>
+                  <!--<div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href='#'>This is a link</a>
+                  </div> <!-->
+                </div>
+              </div>
+
+              <div class="col s12 m3">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="images/headshots/Pete.jpg" height="15%" width="15%" alt="Unsplashed background img 2">
+                    <span class="card-title">Pete Pacent </span>
+                  </div>
+                  <div class="card-content">
+                    <p> Lorem ipsum dolor sit amet </p>
+                  </div>
+                  <!--<div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href='#'>This is a link</a>
+                  </div> <!-->
+                </div>
+              </div>
+            </div>
+
+        </div>
+</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
